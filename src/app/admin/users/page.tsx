@@ -22,12 +22,12 @@ export default function AdminUsersPage() {
         try {
             setIsLoading(true);
             const response = await api.get('/users');
-            const mappedUsers = response.data.map((u: any) => ({
+            const mappedUsers = (response.data as any[]).map((u: any) => ({
                 id: u.id,
                 name: u.fullName,
                 email: u.email,
                 role: u.role,
-                status: u.isActive ? 'active' : 'inactive',
+                status: (u.isActive ? 'active' : 'inactive') as 'active' | 'inactive',
                 createdAt: new Date(u.createdAt),
             }));
             setUsers(mappedUsers);

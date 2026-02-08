@@ -13,7 +13,7 @@ export const MENU_ITEMS = [
 ];
 
 // Dummy Order Data (for Kitchen Display)
-export type OrderStatus = 'pending' | 'preparing' | 'ready' | 'completed';
+export type OrderStatus = 'pending' | 'preparing' | 'ready' | 'completed' | 'cancelled';
 
 export interface Order {
     id: string;

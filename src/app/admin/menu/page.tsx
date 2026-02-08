@@ -30,10 +30,12 @@ export default function AdminMenuPage() {
                 api.get('/menu'),
                 api.get('/categories')
             ]);
-            setMenuItems(menuRes.data);
-            setCategories(catRes.data);
-            if (catRes.data.length > 0 && !formData.categoryId) {
-                setFormData(prev => ({ ...prev, categoryId: catRes.data[0].id }));
+            const menuData = menuRes.data as MenuItem[];
+            const categoryData = catRes.data as Category[];
+            setMenuItems(menuData);
+            setCategories(categoryData);
+            if (categoryData.length > 0 && !formData.categoryId) {
+                setFormData(prev => ({ ...prev, categoryId: categoryData[0].id }));
             }
         } catch (error) {
             console.error('Failed to fetch data:', error);

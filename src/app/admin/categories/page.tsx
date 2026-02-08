@@ -2,14 +2,7 @@
 
 import { useState, useEffect } from 'react';
 
-interface Category {
-    id: string;
-    name: string;
-    icon: string;
-    description: string;
-    itemCount: number;
-    status: 'active' | 'inactive';
-}
+
 
 import api from '@/lib/api';
 
@@ -31,13 +24,13 @@ export default function AdminCategoriesPage() {
         try {
             setIsLoading(true);
             const response = await api.get('/categories');
-            const mappedCategories = response.data.map((c: any) => ({
+            const mappedCategories = (response.data as any[]).map((c: any) => ({
                 id: c.id,
                 name: c.name,
                 icon: c.icon,
                 description: c.description || '',
                 itemCount: Number(c.item_count || 0),
-                status: c.isActive ? 'active' : 'inactive',
+                status: (c.isActive ? 'active' : 'inactive') as 'active' | 'inactive',
             }));
             setCategories(mappedCategories);
         } catch (error) {
