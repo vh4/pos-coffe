@@ -1,0 +1,111 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 248 8% 97%;
+    /* #f8f8f5 converted to hsl-ish for shadcn */
+    --foreground: 30 50% 10%;
+    /* #231e0f */
+
+    --card: 0 0% 100%;
+    --card-foreground: 30 50% 10%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 30 50% 10%;
+
+    --primary: 43 95% 60%;
+    /* #FAC638 */
+    --primary-foreground: 30 50% 10%;
+
+    --secondary: 40 20% 90%;
+    --secondary-foreground: 30 50% 10%;
+
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 43 95% 60%;
+
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 30 40% 10%;
+    /* #231e0f */
+    --foreground: 47 20% 97%;
+    /* #f8f8f5 */
+
+    --card: 26 24% 14%;
+    /* #2c241b */
+    --card-foreground: 47 20% 97%;
+
+    --popover: 26 24% 14%;
+    --popover-foreground: 47 20% 97%;
+
+    --primary: 43 95% 60%;
+    --primary-foreground: 30 40% 10%;
+
+    --secondary: 26 25% 18%;
+    /* #382e22 */
+    --secondary-foreground: 47 20% 97%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 26 25% 18%;
+    --accent-foreground: 47 20% 97%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 26 25% 18%;
+    --input: 26 25% 18%;
+    --ring: 43 95% 60%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-secondary;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-primary;
+}
+
+.material-symbols-outlined {
+  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+}
+
+.material-symbols-outlined.fill {
+  font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+}
